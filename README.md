@@ -1,6 +1,6 @@
 Esta es una app de manejo de tareas creada con Nextjs y TailwindCSS
 
-## Getting Started
+## Correr local
 
 Para correr en entorno local, primero es necesario instalar las dependencias:
 
@@ -17,3 +17,7 @@ npm run dev
 ```
 
 Finalmente abrir [http://localhost:3000](http://localhost:3000) en su navegador para ver la app.
+
+## App desplegada
+
+Si se quiere probar la app desplegada, se puede visitar [https://tasks-fe-mu.vercel.app/](https://tasks-fe-mu.vercel.app/)
