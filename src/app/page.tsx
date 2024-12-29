@@ -3,14 +3,12 @@
 import { useState } from "react";
 import { TaskList } from "../components/tasks/task-list/task-list";
 import { TaskForm } from "../components/tasks/task-form/task-form";
-import { Toast } from "../components/common/toast/toast";
 import { Plus } from "lucide-react";
 import { TaskFilter } from "../components/tasks/task-card/task-filter/task-filter";
 import { TaskProvider } from "@/context/task-context";
 
 export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [error, setError] = useState<string | null>(null);
   const [editingTask, setEditingTask] = useState<any>(null);
 
   return (
@@ -47,8 +45,6 @@ export default function Home() {
           }}
           task={editingTask}
         />
-
-        {error && <Toast message={error} onClose={() => setError(null)} />}
       </div>
     </TaskProvider>
   );

@@ -3,11 +3,12 @@ import { fetcher } from "../fetcher";
 import { endpoints } from "../endpoints";
 import { Task } from "@/models/tasks/task.interface";
 import { TaskStatus } from "@/models/tasks/task-statuses.enum";
+import { errorToast } from "@/utils/toast";
 
 export default function useUpdateTask() {
   const queryClient = useQueryClient();
 
-  const { error, mutateAsync } = useMutation({
+  const { mutateAsync } = useMutation({
     mutationFn: async ({ id, task }: { id: string; task: Partial<Task> }) => {
       return fetcher<Task>({
         url: endpoints.tasks.update(id),
@@ -29,10 +30,12 @@ export default function useUpdateTask() {
         updaterFunction
       );
     },
+    onError() {
+      errorToast("An error occurred while updating the task");
+    },
   });
 
   return {
-    error,
     mutateAsync,
   };
 }

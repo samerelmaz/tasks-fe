@@ -3,11 +3,12 @@ import { fetcher } from "../fetcher";
 import { endpoints } from "../endpoints";
 import { Task } from "@/models/tasks/task.interface";
 import { TaskStatus } from "@/models/tasks/task-statuses.enum";
+import { errorToast } from "@/utils/toast";
 
 export default function useDeleteTask() {
   const queryClient = useQueryClient();
 
-  const { error, mutateAsync } = useMutation({
+  const { mutateAsync } = useMutation({
     mutationFn: async (deletedTaskId: string) => {
       await fetcher<void>({
         url: endpoints.tasks.delete(deletedTaskId),
@@ -29,10 +30,12 @@ export default function useDeleteTask() {
         updaterFunction
       );
     },
+    onError() {
+      errorToast("An error occurred while deleting the task");
+    },
   });
 
   return {
-    error,
     mutateAsync,
   };
 }

@@ -3,12 +3,13 @@ import { fetcher } from "../fetcher";
 import { endpoints } from "../endpoints";
 import { Task } from "@/models/tasks/task.interface";
 import { TaskStatus } from "@/models/tasks/task-statuses.enum";
+import { errorToast } from "@/utils/toast";
 
 export default function useCreateTask() {
   const endpoint = endpoints.tasks.create;
   const queryClient = useQueryClient();
 
-  const { error, mutateAsync } = useMutation({
+  const { mutateAsync } = useMutation({
     mutationFn: async (
       newTask: Omit<Task, "id" | "createdAt" | "completed">
     ) => {
@@ -26,10 +27,12 @@ export default function useCreateTask() {
       queryClient.setQueryData(["tasks", TaskStatus.ALL], updaterFunction);
       queryClient.setQueryData(["tasks", TaskStatus.PENDING], updaterFunction);
     },
+    onError() {
+      errorToast("An error occurred while creating the task");
+    },
   });
 
   return {
-    error,
     mutateAsync,
   };
 }

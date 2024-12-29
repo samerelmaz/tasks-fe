@@ -24,18 +24,13 @@ const TaskContext = createContext<TaskContextType | undefined>(undefined);
 export const TaskProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
-  const {
-    tasks,
-    filterByStatus: getTasks,
-    isLoading,
-    error: getTasksError,
-  } = useGetTasks();
+  const { tasks, filterByStatus: getTasks, isLoading } = useGetTasks();
 
-  const { mutateAsync: createTask, error: createTaskError } = useCreateTask();
+  const { mutateAsync: createTask } = useCreateTask();
 
-  const { mutateAsync: updateTask, error: updateTaskError } = useUpdateTask();
+  const { mutateAsync: updateTask } = useUpdateTask();
 
-  const { mutateAsync: deleteTask, error: deleteTaskError } = useDeleteTask();
+  const { mutateAsync: deleteTask } = useDeleteTask();
 
   const contextValue: TaskContextType = {
     tasks,
