@@ -28,4 +28,7 @@ npm run test
 
 ## App desplegada
 
-Si se quiere probar la app desplegada, se puede visitar [https://tasks-fe-mu.vercel.app/](https://tasks-fe-mu.vercel.app/)
+Si se quiere probar la app desplegada, se puede visitar [https://tasks-fe-mu.vercel.app/](https://tasks-fe-mu.vercel.app/). Si no está disponible, probar estas otras opciones:
+
+[https://tasks-fe-git-master-samerelmazs-projects.vercel.app/](https://tasks-fe-git-master-samerelmazs-projects.vercel.app/)
+[https://tasks-fxbtc5s2w-samerelmazs-projects.vercel.app/](https://tasks-fxbtc5s2w-samerelmazs-projects.vercel.app/)
