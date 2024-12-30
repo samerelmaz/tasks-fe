@@ -32,3 +32,5 @@ Si se quiere probar la app desplegada, se puede visitar [https://tasks-fe-mu.ver
 
 [https://tasks-fe-git-master-samerelmazs-projects.vercel.app/](https://tasks-fe-git-master-samerelmazs-projects.vercel.app/)
 [https://tasks-fxbtc5s2w-samerelmazs-projects.vercel.app/](https://tasks-fxbtc5s2w-samerelmazs-projects.vercel.app/)
+
+NOTA: Ya que la API está desplegada en la versión gratis de Render, la API puede experimentar delays en la primera carga luego de tiempo de inactividad. Si la app tarda en responder al inicio, esperar hasta que responda, puede tardar hasta 1 minuto. Luego de eso las respuestas deben ser más rapidas.
